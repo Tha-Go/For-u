@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Marry Me</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      .buttons {
+        position: relative;
+        display: inline-block;
+      }
+      #noBtn {
+        position: absolute;
+      }
+    </style>
   </head>
   <body>
     <h1 id="proposalText">Do you marry me baby?</h1>
@@ -37,13 +50,14 @@
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
 
-        noBtn.style.position = "absolute";
         noBtn.style.left = `${Math.min(x, maxX - 10)}px`;
         noBtn.style.top = `${Math.min(y, maxY - 10)}px`;
       });
 
       noBtn.addEventListener("click", () => {
-        sticker.src = "";
+        proposalText.textContent = "Why are you do it baby? 😭";
+        sticker.src =
+          "https://media1.giphy.com/media/VgNk3XyaEibn5ggYQs/giphy.gif";
       });
 
       window.addEventListener("resize", () => {
