@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Marry Me</title>
+  </head>
+  <body>
+    <h1 id="proposalText">Marry me?</h1>
+    <img
+      id="sticker"
+      src="https://media0.giphy.com/media/aiAYc1ulnN4dBKl2yz/giphy.gif"
+      alt="Sticker"
+      class="sticker"
+    />
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+
+    <script>
+      const proposalText = document.getElementById("proposalText");
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+      const sticker = document.getElementById("sticker");
+
+      yesBtn.addEventListener("click", () => {
+        proposalText.textContent = "I love you so much o sml💍💖";
+        sticker.src =
+          "https://media1.giphy.com/media/VgNk3XyaEibn5ggYQs/giphy.gif";
+      });
+
+      noBtn.addEventListener("mouseover", () => {
+        const maxX = window.innerWidth - noBtn.clientWidth - 10;
+        const maxY = window.innerHeight - noBtn.clientHeight - 10;
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${Math.min(x, maxX - 10)}px`;
+        noBtn.style.top = `${Math.min(y, maxY - 10)}px`;
+      });
+
+      noBtn.addEventListener("click", () => {
+        sticker.src = "https://media.tenor.com/UnFx-k_lSckAAAAC/crying-cry.gif";
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth < 400) {
+          document.body.style.fontSize = "0.9em";
+        } else {
+          document.body.style.fontSize = "1em";
+        }
+      });
+    </script>
+  </body>
+</html>
