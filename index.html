@@ -5,22 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Marry Me</title>
-    <style>
-      body {
-        text-align: center;
-        font-family: Arial, sans-serif;
-      }
-      .buttons {
-        position: relative;
-        display: inline-block;
-      }
-      #noBtn {
-        position: absolute;
-      }
-    </style>
   </head>
-  <body>
-    <h1 id="proposalText">Do you marry me baby?</h1>
+  <h1 id="proposalText">Marry me?</h1>
     <img
       id="sticker"
       src="https://media0.giphy.com/media/aiAYc1ulnN4dBKl2yz/giphy.gif"
@@ -40,32 +26,26 @@
 
       yesBtn.addEventListener("click", () => {
         proposalText.textContent = "I love you so much o sml💍💖";
-        sticker.src =
-          "https://media1.giphy.com/media/VgNk3XyaEibn5ggYQs/giphy.gif";
+        sticker.src = "https://media1.giphy.com/media/VgNk3XyaEibn5ggYQs/giphy.gif";
+        
+        
+        noBtn.style.display = "none";
       });
 
       noBtn.addEventListener("mouseover", () => {
-        const maxX = window.innerWidth - noBtn.clientWidth - 10;
-        const maxY = window.innerHeight - noBtn.clientHeight - 10;
+        const maxX = window.innerWidth - noBtn.clientWidth - 20;
+        const maxY = window.innerHeight - noBtn.clientHeight - 20;
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
 
-        noBtn.style.left = `${Math.min(x, maxX - 10)}px`;
-        noBtn.style.top = `${Math.min(y, maxY - 10)}px`;
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
       });
 
       noBtn.addEventListener("click", () => {
-        proposalText.textContent = "Why are you do it baby? 😭";
-        sticker.src =
-          "https://media1.giphy.com/media/VgNk3XyaEibn5ggYQs/giphy.gif";
-      });
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth < 400) {
-          document.body.style.fontSize = "0.9em";
-        } else {
-          document.body.style.fontSize = "1em";
-        }
+        proposalText.textContent = "😭💔";
+        sticker.src = "https://media.tenor.com/UnFx-k_lSckAAAAC/crying-cry.gif";
       });
     </script>
   </body>
